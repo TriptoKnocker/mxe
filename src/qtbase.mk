@@ -29,6 +29,7 @@ define $(PKG)_BUILD
         PKG_CONFIG_SYSROOT_DIR="/" \
         PKG_CONFIG_LIBDIR="$(PREFIX)/$(TARGET)/lib/pkgconfig" \
         ./configure \
+            -c++std c++1z \
             -opensource \
             -confirm-license \
             -xplatform win32-g++ \
@@ -37,10 +38,9 @@ define $(PKG)_BUILD
             -pkg-config \
             -force-pkg-config \
             -no-use-gold-linker \
-            -release \
-            -static \
+            -debug-and-release \
             -prefix '$(PREFIX)/$(TARGET)/qt5' \
-            -no-icu \
+            -icu \
             -opengl desktop \
             -no-glib \
             -accessibility \
