@@ -19,7 +19,7 @@ define $(PKG)_BUILD
     cd '$(SOURCE_DIR)' && ./autogen.sh
     cd '$(SOURCE_DIR)' && ./configure --with-libsodium \
     $(MXE_CONFIGURE_OPTS) \
-    --prefix='$(PREFIX)/$(TARGET)/malt/zmq-$($(PKG)_VERSION)'
+    --prefix='$(PREFIX)/$(TARGET)/malt/zmq-4.2.5'
     $(MAKE) -C '$(SOURCE_DIR)' -j $(JOBS)
     $(MAKE) -C '$(SOURCE_DIR)' -j 1 $(INSTALL_STRIP_LIB)
 endef

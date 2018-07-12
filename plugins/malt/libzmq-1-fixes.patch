@@ -1,0 +1,29 @@
+This file is part of MXE. See LICENSE.md for licensing information.
+
+Contains ad hoc patches for cross building.
+
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Normae Cross-Compiler <localhost>
+Date: Wed, 6 Sep 2017 15:13:17 +0200
+Subject: [PATCH] Don't use windows-style export
+
+
+diff --git a/include/zmq.h b/include/zmq.h
+index 1111111..2222222 100644
+--- a/include/zmq.h
++++ b/include/zmq.h
+@@ -80,9 +80,11 @@ extern "C" {
+ #   if defined ZMQ_STATIC
+ #       define ZMQ_EXPORT
+ #   elif defined DLL_EXPORT
+-#       define ZMQ_EXPORT __declspec(dllexport)
++//#       define ZMQ_EXPORT __declspec(dllexport)
++#       define ZMQ_EXPORT __attribute__ ((visibility("default")))
+ #   else
+-#       define ZMQ_EXPORT __declspec(dllimport)
++//#       define ZMQ_EXPORT __declspec(dllimport)
++#       define ZMQ_EXPORT
+ #   endif
+ #else
+ #   if defined __SUNPRO_C  || defined __SUNPRO_CC
+
