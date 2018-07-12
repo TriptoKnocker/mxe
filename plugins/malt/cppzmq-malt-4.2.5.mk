@@ -15,6 +15,6 @@ define $(PKG)_UPDATE
 endef
 
 define $(PKG)_BUILD
-    cd '$(SOURCE_DIR)' && cp -rf zmq.hpp '$(PREFIX)/$(TARGET)/malt/zmq-$($(PKG)_VERSION)/include/'
-    cd '$(SOURCE_DIR)' && cp -rf zmq_addon.hpp '$(PREFIX)/$(TARGET)/malt/zmq-$($(PKG)_VERSION)/include/'
+    cd '$(SOURCE_DIR)' && cp -rf zmq.hpp '$(PREFIX)/$(TARGET)/malt/zmq-4.2.5/include/'
+    cd '$(SOURCE_DIR)' && cp -rf zmq_addon.hpp '$(PREFIX)/$(TARGET)/malt/zmq-4.2.5/include/'
 endef
