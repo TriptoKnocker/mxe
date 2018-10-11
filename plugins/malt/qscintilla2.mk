@@ -4,8 +4,8 @@ PKG             := qscintilla2
 $(PKG)_WEBSITE  := https://www.riverbankcomputing.com/software/qscintilla/intro
 $(PKG)_DESCR    := QScintilla2
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 2.10.1
-$(PKG)_CHECKSUM := 97f98a9d91f908db6ce37fecc6d241d955b388a1c487173b60726cba9a3dfa64
+$(PKG)_VERSION  := 2.10.8
+$(PKG)_CHECKSUM := 46cd5b4e609ca5e13130ba8cc7028d44fd1dc5b037f97c492899006ed0c992eb
 $(PKG)_SUBDIR   := QScintilla_gpl-$($(PKG)_VERSION)
 $(PKG)_FILE     := QScintilla_gpl-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := https://$(SOURCEFORGE_MIRROR)/project/pyqt/QScintilla2/QScintilla-$($(PKG)_VERSION)/$($(PKG)_FILE)
@@ -13,10 +13,9 @@ $(PKG)_URL      := https://$(SOURCEFORGE_MIRROR)/project/pyqt/QScintilla2/QScint
 $(PKG)_DEPS     := cc qtbase
 
 define $(PKG)_UPDATE
-    $(WGET) -q -O- 'https://www.riverbankcomputing.com/software/qscintilla/download' | \
-    grep QScintilla_gpl | \
-    head -n 1 | \
-    $(SED) -n 's,.*QScintilla_gpl-\([0-9][^>]*\)\.tar.*,\1,p'
+    $(WGET) -q -O- 'https://sourceforge.net/projects/pyqt/files/QScintilla2/' | \
+    $(SED) -n 's,.*/QScintilla-\([0-9.]*\).*[^>]*,\1,p' | \
+    head -1
 endef
 
 define $(PKG)_BUILD
