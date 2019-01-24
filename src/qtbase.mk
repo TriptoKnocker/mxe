@@ -32,7 +32,7 @@ define $(PKG)_BUILD
         PKG_CONFIG_LIBDIR="$(PREFIX)/$(TARGET)/lib/pkgconfig" \
         ./configure \
             -c++std c++1z \
-            -opensource \
+            -commercial \
             -confirm-license \
             -xplatform win32-g++ \
             -device-option CROSS_COMPILE=${TARGET}- \
